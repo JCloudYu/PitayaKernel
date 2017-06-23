@@ -1,4 +1,15 @@
 <?php
+	/**
+	 * Class PBModule
+	 * @property-read string $id
+	 * @property-read string $id_short
+	 * @property-read string $id_medium
+	 * @property-read string $class
+	 * @property-read string $class_lower
+	 * @property-read string $class_upper
+	 * @property-read mixed[] $bootChain
+	 * @property-read mixed $error
+	 */
 	abstract class PBModule extends PBObject {
 		const PRIOR_MODULES = [];
 		public function precondition() {
@@ -250,6 +261,11 @@
 			return TRUE;
 		}
 	}
+	
+	/**
+	 * Class PBTplModule
+	 * @property-read mixed[] $vars
+	 */
 	abstract class PBTplModule extends PBModule {
 		private $_tplObj = NULL;
 	
