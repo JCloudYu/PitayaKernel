@@ -55,9 +55,6 @@
 		public function __get_id_medium() {
 			return substr( $this->_instId, 0, 16 );
 		}
-		public function __get_id_long() {
-			return substr( $this->_instId, 0, 32 );
-		}
 	
 		public function __get_class() {
 			return get_class($this);
@@ -86,6 +83,8 @@
 		
 		private static $_MODULE_SEARCH_PATHS = [];
 		private static function InstantiateModule($identifier) {
+			static $_counter = 0;
+			
 			$moduleDesc = self::ParseModuleIdentifier( $identifier );
 			if ( $moduleDesc === FALSE ) {
 				throw( new Exception( "Given target module identifier has syntax error!" ) );
@@ -96,7 +95,7 @@
 			$package  = implode( '.', $moduleDesc[ 'package' ] );
 			$module	  = $moduleDesc[ 'module' ];
 			$class	  = empty($moduleDesc[ 'class' ]) ? $module : $moduleDesc[ 'class' ];
-			$moduleId = sha1( "{$package}.{$module}#{$class}&" . microtime() );
+			$moduleId = md5( "{$package}.{$module}#{$class}&" . (++$_counter) . '?' . microtime() );
 
 
 
