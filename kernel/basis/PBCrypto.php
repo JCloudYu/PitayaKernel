@@ -80,6 +80,13 @@
 		}
 	}
 	final class PBJWT {
+		const SUPPORTED_ALG = [
+			'NONE',
+			'HS256', 'HS384', 'HS512',
+			'RS256', 'RS384', 'RS512',
+			'RAW_RS256', 'RAW_RS384', 'RAW_RS512'
+		];
+	
 		const ALG_NONE	= 'NONE';
 		const ALG_HS256 = 'HS256';
 		const ALG_HS384 = 'HS384';
