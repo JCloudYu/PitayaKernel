@@ -169,7 +169,7 @@
 
 			
 			$pkgPath = $tokens; array_unshift($pkgPath, $pkg);
-			$pkgPath = implode('.', $tokens);
+			$pkgPath = implode('.', $pkgPath);
 			while( ($entry = readdir($dirHandle)) !== FALSE ) {
 				if ( substr($entry, -4) != '.php' ) {
 					continue;
