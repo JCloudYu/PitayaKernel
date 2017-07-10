@@ -207,7 +207,7 @@
 			if ( !$G_CONF[ 'debug-mode' ] ) return '';
 
 
-			$width = intval($G_CONF[ 'debug-console-width' ]);
+			$width = intval($G_CONF[ 'debug-dialog-width' ]);
 
 			$out = '';
 			if( IS_HTTP_ENV ) {
